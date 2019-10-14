@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     public float timeToJumpApex = .4f;
     float accelerationTimeAirborne = .2f;
     float accelerationTimeGrounded = .1f;
-    float moveSpeed = 6;
+    float moveSpeed = 8;
 
     public Vector2 wallJumpClimb;
     public Vector2 wallJumpOff;
@@ -77,7 +77,7 @@ public class Player : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetButtonDown("Jump")) // Input.GetAxisRaw("Horizontal"); << left = -1, right = 1
         {
             if (wallSliding)
             {
