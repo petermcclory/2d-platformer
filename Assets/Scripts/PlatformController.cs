@@ -13,7 +13,7 @@ public class PlatformController : RaycastController
     public float speed;
     public bool cyclic;
     public float waitTime;
-    [Range(0, 2)]
+    [Range(0, 3)]
     public float easeAmount;
 
     int fromWaypointIndex;
