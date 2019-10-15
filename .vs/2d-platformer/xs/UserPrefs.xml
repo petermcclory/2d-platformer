@@ -3,8 +3,8 @@
     <Files>
       <File FileName="Assets/Scripts/Controller2D.cs" Line="258" Column="1" />
       <File FileName="Assets/Scripts/PlatformController.cs" />
-      <File FileName="Assets/Scripts/Player.cs" Line="124" Column="1" />
-      <File FileName="Assets/Scripts/RaycastController.cs" Line="58" Column="1" />
+      <File FileName="Assets/Scripts/Player.cs" />
+      <File FileName="Assets/Scripts/RaycastController.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
