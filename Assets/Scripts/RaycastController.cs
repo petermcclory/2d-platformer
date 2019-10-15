@@ -8,8 +8,11 @@ public class RaycastController : MonoBehaviour
     public LayerMask collisionMask;
 
     public const float skinWidth = .015f;
-    public int horizontalRayCount = 4;
-    public int verticalRayCount = 4;
+    const float dstBetweenRays = .25f;
+    [HideInInspector]
+    public int horizontalRayCount;
+    [HideInInspector]
+    public int verticalRayCount;
 
     [HideInInspector]
     public float horizontalRaySpacing;
@@ -20,9 +23,13 @@ public class RaycastController : MonoBehaviour
     public BoxCollider2D collider;
     public RaycastOrigins raycastOrigins;
 
-    public virtual void Start()
+    public virtual void Awake()
     {
         collider = GetComponent<BoxCollider2D>();
+    }
+
+    public virtual void Start()
+    {
         CalculateRaySpacing();
     }
 
@@ -42,8 +49,11 @@ public class RaycastController : MonoBehaviour
         Bounds bounds = collider.bounds;
         bounds.Expand(skinWidth * -2);
 
-        horizontalRayCount = Mathf.Clamp(horizontalRayCount, 2, int.MaxValue);
-        verticalRayCount = Mathf.Clamp(verticalRayCount, 2, int.MaxValue);
+        float boundsWidth = bounds.size.x;
+        float boundsHeight = bounds.size.y;
+
+        horizontalRayCount = Mathf.RoundToInt(boundsHeight / dstBetweenRays);
+        verticalRayCount = Mathf.RoundToInt(boundsWidth / dstBetweenRays);
 
         horizontalRaySpacing = bounds.size.y / (horizontalRayCount - 1);
         verticalRaySpacing = bounds.size.x / (verticalRayCount - 1);
