@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
 
 public class PlatformController : RaycastController
@@ -9,6 +8,9 @@ public class PlatformController : RaycastController
 
     public Vector3[] localWaypoints;
     Vector3[] globalWaypoints;
+
+    public Color myColor; // Display colour picker in the Inspector
+    MeshRenderer myRenderer; // For colouring the platform
 
     public float speed;
     public bool cyclic;
@@ -27,7 +29,15 @@ public class PlatformController : RaycastController
     {
         base.Start();
 
-        globalWaypoints = new Vector3[localWaypoints.Length];
+        myRenderer = GetComponent<MeshRenderer>();
+        myRenderer.material.color = myColor;
+
+        if (gameObject.tag == "Through") // If this platform is tagged 'Through', then set the colour to X
+        {
+            myRenderer.material.color = new Color(0, 1, 0, 0); // Set the colour to solid bright green if it's a through platform.
+        }
+
+            globalWaypoints = new Vector3[localWaypoints.Length];
         for (int i = 0; i < localWaypoints.Length; i++)
         {
             globalWaypoints[i] = localWaypoints[i] + transform.position;

@@ -60,7 +60,7 @@ public class CameraFollow : MonoBehaviour
 
     void OnDrawGizmos()
     {
-        Gizmos.color = new Color(1, 0, 0, .5f);
+        Gizmos.color = new Color(1, 0, 0, 0f); // set colour to invisible red (Color(R,G,B,A)
         Gizmos.DrawCube(focusArea.centre, focusAreaSize);
     }
 
