@@ -9,6 +9,10 @@ public class Player : MonoBehaviour
     public float minJumpHeight = 0.5f;
     public float timeToJumpApex = .4f;
     public float accelerationTimeAirborne = .1f;
+    public float fallMultiplier = 2f;
+    public float maxFallSpeed = 10f;
+
+
     public float accelerationTimeGrounded = .125f;
     public float moveSpeed = 10f;
 
@@ -20,7 +24,7 @@ public class Player : MonoBehaviour
     public float wallStickTime = .5f;
     float timeToWallUnstick;
 
-    float gravity;
+    public float gravity;
     float maxJumpVelocity;
     float minJumpVelocity;
     Vector3 velocity;
@@ -171,5 +175,15 @@ public class Player : MonoBehaviour
         float targetVelocityX = directionalInput.x * moveSpeed;
         velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below) ? accelerationTimeGrounded : accelerationTimeAirborne);
         velocity.y += gravity * Time.deltaTime;
+
+        if (velocity.y < 0) // If the player is falling...
+        {
+            velocity.y += gravity * fallMultiplier * Time.deltaTime; // Do a faster fall
+        }
+
+        if (velocity.y < -(maxFallSpeed * Time.deltaTime)) // Once a certain falling speed is reached
+        {
+            velocity.y = -(maxFallSpeed * Time.deltaTime);// Don't accellerate any further
+        }
     }
 }

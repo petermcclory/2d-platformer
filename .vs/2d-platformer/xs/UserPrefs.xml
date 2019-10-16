@@ -1,35 +1,18 @@
 ﻿<Properties StartupConfiguration="{3B33C16C-83D6-D194-C802-89E73B492B0A}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlatformController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player.cs">
     <Files>
-      <File FileName="Assets/Scripts/Controller2D.cs" Line="136" Column="18" />
-      <File FileName="Assets/Scripts/Player.cs" Line="158" Column="14" />
+      <File FileName="Assets/Scripts/Controller2D.cs" Line="148" Column="65" />
+      <File FileName="Assets/Scripts/Player.cs" Line="184" Column="27" />
       <File FileName="Assets/Scripts/PlayerInput.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/PlatformController.cs" Line="37" Column="63" />
-      <File FileName="Assets/Scripts/RaycastController.cs" Line="68" Column="1" />
-      <File FileName="Assets/Scripts/CameraFollow.cs" Line="63" Column="47" />
+      <File FileName="Assets/Scripts/PlatformController.cs" Line="10" Column="31" />
+      <File FileName="Assets/Scripts/RaycastController.cs" />
+      <File FileName="Assets/Scripts/CameraFollow.cs" Line="58" Column="77" />
+      <File FileName="Assets/Scripts/Platform.cs" Line="1" Column="1" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="2d-platformer" expanded="True">
-            <Node name="Assets" expanded="True">
-              <Node name="Scripts" expanded="True">
-                <Node name="PlatformController.cs" selected="True" />
-              </Node>
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-      <Pad Id="MonoDevelop.UnitTesting.TestPad">
-        <State name="__root__">
-          <Node name="2d-platformer" expanded="True" selected="True" />
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="04000328-b8eb-43a6-af3a-e3d5234feb93" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="4bf0a825-1591-4796-9093-d17223a48294" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
