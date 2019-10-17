@@ -181,9 +181,11 @@ public class Player : MonoBehaviour
             velocity.y += gravity * fallMultiplier * Time.deltaTime; // Do a faster fall
         }
 
+        
         if (velocity.y < -(maxFallSpeed * Time.deltaTime)) // Once a certain falling speed is reached
         {
             velocity.y = -(maxFallSpeed * Time.deltaTime);// Don't accellerate any further
         }
+       
     }
 }
