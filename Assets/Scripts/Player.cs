@@ -179,21 +179,6 @@ public class Player : MonoBehaviour
         velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below) ? accelerationTimeGrounded : accelerationTimeAirborne);
         velocity.y += gravity * Time.deltaTime;
 
-        Vector3 theScale = transform.localScale;
-
-        if ((velocity.x < 0) & (theScale.x > 0)) // If Player is moving LEFT and is flipped RIGHT
-            {
-                theScale.x *= -1;
-                transform.localScale = theScale;
-                Debug.Log("LEFT " + theScale); // print out theScale in the Unity Console
-        } else if ((velocity.x > 0) & (theScale.x <= 0)) // If Player is moving RIGHT and is flipped LEFT
-        {
-            theScale.x *= -1;
-            transform.localScale = theScale;
-            Debug.Log("RIGHT " + theScale); // print out theScale in the Unity Console
-        }
-
-
         if (velocity.y < 0) // If the player is falling...
         {
             velocity.y += gravity * fallMultiplier * Time.deltaTime; // Do a faster fall
