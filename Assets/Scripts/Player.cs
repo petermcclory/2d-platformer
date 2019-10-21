@@ -47,7 +47,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        CalculateVelocity();
+        CalculateVelocity(); // 
         HandleWallSliding();
 
         controller.Move(velocity * Time.deltaTime, directionalInput);
@@ -173,8 +173,23 @@ public class Player : MonoBehaviour
     void CalculateVelocity()
     {
         float targetVelocityX = directionalInput.x * moveSpeed;
+
+        // calculate X velocity here
         velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below) ? accelerationTimeGrounded : accelerationTimeAirborne);
         velocity.y += gravity * Time.deltaTime;
+
+        if (velocity.x < 0) // if player is moving leftwards
+        {
+            Vector3 theScale = transform.localScale;
+           
+            if (controller.transform.localScale.x < 0)
+                {
+                theScale.x *= -1;
+                transform.localScale = theScale;
+                Debug.Log(theScale); // print out theScale in the Unity Console
+            }
+        }
+
 
         if (velocity.y < 0) // If the player is falling...
         {

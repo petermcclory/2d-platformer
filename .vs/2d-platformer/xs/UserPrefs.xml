@@ -3,16 +3,16 @@
     <Files>
       <File FileName="Assets/Scripts/Controller2D.cs" Line="131" Column="66" />
       <File FileName="Assets/Scripts/Player.cs" Line="189" Column="8" />
-      <File FileName="Assets/Scripts/PlayerInput.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/PlayerInput.cs" />
       <File FileName="Assets/Scripts/PlatformController.cs" />
-      <File FileName="Assets/Scripts/RaycastController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/RaycastController.cs" />
       <File FileName="Assets/Scripts/CameraFollow.cs" />
       <File FileName="Assets/Scripts/Platform.cs" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="91362a16-a3ce-4a7b-96ed-6facca4ba71b" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="40f022c5-fc35-43af-a852-ba449dca09a0" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
