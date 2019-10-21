@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
     Vector2 directionalInput; // -1 = left 1 = right
     bool wallSliding;
     int wallDirX;
+    private object center;
 
     void Start()
     {
@@ -178,16 +179,18 @@ public class Player : MonoBehaviour
         velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below) ? accelerationTimeGrounded : accelerationTimeAirborne);
         velocity.y += gravity * Time.deltaTime;
 
-        if (velocity.x < 0) // if player is moving leftwards
-        {
-            Vector3 theScale = transform.localScale;
-           
-            if (controller.transform.localScale.x < 0)
-                {
+        Vector3 theScale = transform.localScale;
+
+        if ((velocity.x < 0) & (theScale.x > 0)) // If Player is moving LEFT and is flipped RIGHT
+            {
                 theScale.x *= -1;
                 transform.localScale = theScale;
-                Debug.Log(theScale); // print out theScale in the Unity Console
-            }
+                Debug.Log("LEFT " + theScale); // print out theScale in the Unity Console
+        } else if ((velocity.x > 0) & (theScale.x <= 0)) // If Player is moving RIGHT and is flipped LEFT
+        {
+            theScale.x *= -1;
+            transform.localScale = theScale;
+            Debug.Log("RIGHT " + theScale); // print out theScale in the Unity Console
         }
 
 
