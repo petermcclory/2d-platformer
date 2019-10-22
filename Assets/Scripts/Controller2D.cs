@@ -4,8 +4,12 @@ using System.Collections;
 public class Controller2D : RaycastController
 {
 
-    public float maxSlopeAngle = 80;
-    public float maxDescendAngle = 80;
+    [Range(0, 89)]
+    public float maxSlopeAngle;
+    [Range(0, 89)]
+    public float maxDescendAngle;
+
+    public bool pulling; // defined from the Puller.cs script
 
     public CollisionInfo collisions;
     [HideInInspector]
@@ -92,7 +96,7 @@ public class Controller2D : RaycastController
                     continue;
                 }
 
-                otherCollider = hit.collider; // FOR PUSHABLE OBJECTS?
+                otherCollider = hit.collider; // FOR PUSHABLE / PULLABLE OBJECTS
 
                 float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
 
@@ -130,19 +134,33 @@ public class Controller2D : RaycastController
             }
         }
 
-        // Pushable object code
 
-        if (otherCollider != null && otherCollider.gameObject != this.gameObject && otherCollider.tag == "Pushable")
+        // Pull / Pushable object code
+
+        if (otherCollider != null && otherCollider.gameObject != this.gameObject && otherCollider.tag == "Pushable" && (Input.GetButtonDown("Pull")))
         {
+            Debug.Log("PULLING");
+
+            Vector2 pushAmount = otherCollider.gameObject.GetComponent<PushableObject>().Pull(new Vector2(originalMoveAmountX, 0));
+
+            moveAmount = new Vector2(pushAmount.x, moveAmount.y + pushAmount.y);
+            collisions.left = false;
+            collisions.right = false;
+
+        }
+        else if (otherCollider != null && otherCollider.gameObject != this.gameObject && otherCollider.tag == "Pushable" && !(Input.GetButtonDown("Pull")))
+        {
+            // Debug.Log("PUSHING");
             Vector2 pushAmount = otherCollider.gameObject.GetComponent<PushableObject>().Push(new Vector2(originalMoveAmountX, 0));
-            //print (moveAmount.y);
+            
             moveAmount = new Vector2(pushAmount.x, moveAmount.y + pushAmount.y);
             collisions.left = false;
             collisions.right = false;
         }
     }
 
-    void VerticalCollisions(ref Vector2 moveAmount)
+
+void VerticalCollisions(ref Vector2 moveAmount)
     {
         float directionY = Mathf.Sign(moveAmount.y);
         float rayLength = Mathf.Abs(moveAmount.y) + skinWidth;

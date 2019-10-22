@@ -25,8 +25,14 @@ public class PushableObject : MonoBehaviour
 
     }
 
+    public Vector2 Pull(Vector2 amount)
+    {
+        return controller.Move(amount, false); // reverse this?
+    }
+
     public Vector2 Push(Vector2 amount)
     {
         return controller.Move(amount, false);
     }
+
 }

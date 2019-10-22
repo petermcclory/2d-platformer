@@ -70,7 +70,6 @@
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\PlayerAnimation.cs" />
     <Compile Include="Assets\Scripts\PlayerInput.cs" />
-    <Compile Include="Assets\Scripts\Puller.cs" />
     <Compile Include="Assets\Scripts\PushableObject.cs" />
     <Compile Include="Assets\Scripts\RaycastController.cs" />
     <Reference Include="Cinemachine">

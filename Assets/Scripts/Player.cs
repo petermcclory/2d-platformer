@@ -130,15 +130,6 @@ public class Player : MonoBehaviour
                 velocity.y = -wallSlideSpeedMax;
             }
 
-
-            /*if (directionalInput.x == (-1 * wallDirX)) // if player presses opposite horizontal direction to the wall
-            {
-                velocity.x = -wallDirX * wallJumpOff.x;
-                velocity.y = wallJumpOff.y;
-                wallSliding = false;
-            }*/
-
-
             if (directionalInput.x == (-1 * wallDirX)) // if player presses opposite horizontal direction to the wall
             {
                 velocity.x = -wallDirX; // Slight jump off wall
