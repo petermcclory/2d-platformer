@@ -23,13 +23,13 @@ public class PlayerAnimation : MonoBehaviour
         {
             theScale.x *= -1;
             transform.localScale = theScale;
-            Debug.Log("LEFT " + theScale); // print out theScale in the Unity Console
+            //Debug.Log("LEFT " + theScale); // print out theScale in the Unity Console
         }
         else if ((myDirection > 0) & (theScale.x < 0)) // If Player is moving RIGHT and is flipped LEFT
         {
             theScale.x *= -1;
             transform.localScale = theScale;
-            Debug.Log("RIGHT " + theScale); // print out theScale in the Unity Console
+            //Debug.Log("RIGHT " + theScale); // print out theScale in the Unity Console
         }
 
     }
